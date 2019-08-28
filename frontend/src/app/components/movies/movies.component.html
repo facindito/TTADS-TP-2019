@@ -1,0 +1,14 @@
+<div class="conteiner">
+    <table>
+        <thead>
+            <th>Titulo</th>
+            <th>Year</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let movie of moviesService.movies">
+                <td>{{movie.titulo | json}}</td>
+                <td>{{movie.year | json}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
