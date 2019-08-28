@@ -39,8 +39,11 @@ router.put('/:id', (req, res, next) => {
     Movie.findById(id)
         .then((movie) => {
             if (movie._id.toString() === id.toString()) {
-                if (typeof req.body.title !== 'undefined') {
-                    movie.title = req.body.title;
+                if (typeof req.body.titulo !== 'undefined') {
+                    movie.titulo = req.body.titulo;
+                }
+                if (typeof req.body.year !== 'undefined') {
+                    movie.year = req.body.year;
                 }
 
                 movie.save()
