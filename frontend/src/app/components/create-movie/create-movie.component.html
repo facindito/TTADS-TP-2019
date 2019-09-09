@@ -1,0 +1,26 @@
+<script>
+        angular.module('dateInputExample', [])
+          .controller('DateController', ['$scope', function($scope) {
+            $scope.example = {
+              value: new Date()
+            };
+          }]);
+     </script>
+<body>
+
+<h2>Crear película</h2>
+
+<div>
+    <label>Título:</label>
+    <br>
+    <input type="text" [(ngModel)]="titulo">
+</div>
+<div>
+    <label>Fecha de estreno:</label>
+    <br>
+    <input type="date" [(ngModel)]="fechaEstreno" ng-model="example.value"
+        placeholder="yyyy-MM-dd" required />
+</div>
+    <br>
+    <button (click)="createMovie(titulo, fechaEstreno)">Enviar</button>
+</body>

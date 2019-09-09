@@ -7,22 +7,27 @@ import { Movie} from '../../models/movie';
   selector: 'app-movies',
   templateUrl: './movies.component.html',
   styleUrls: ['./movies.component.css'],
-  providers:[MoviesService]
+  providers: [MoviesService]
 })
 export class MoviesComponent implements OnInit {
 
-  constructor(private moviesService :MoviesService) { }
+  constructor(private moviesService: MoviesService) { }
   movies: Movie[];
+
   ngOnInit() {
     this.getMovies();
   }
 
-  getMovies(){
+  getMovies() {
     this.moviesService.getMovies()
-      .subscribe((res:any) =>{
+      .subscribe((res: any) => {
         this.moviesService.movies = res.movies;
-        console.log(this.moviesService.movies);      
-      });
+        console.log(this.moviesService.movies);
+        });
+  }
+
+  movieDetails(id) {
+    console.log(id);
   }
 
 }

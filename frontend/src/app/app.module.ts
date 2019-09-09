@@ -4,15 +4,21 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CreateMovieComponent } from './components/create-movie/create-movie.component';
+import { AppRoutingModule } from './app-routing.module';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MoviesComponent
+    MoviesComponent,
+    CreateMovieComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

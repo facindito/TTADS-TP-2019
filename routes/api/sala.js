@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const router = require('express').Router();
 var Sala = mongoose.model('Sala');
 
-//var Objectid = mongoose.Types.ObjectId;
+var Objectid = mongoose.Types.ObjectId;
 
 router.get('/', (req, res, next) => {
     Sala.find({})
@@ -19,8 +19,7 @@ router.post('/', (req, res, next) => {
     let sala = new Sala();
 
     sala.numero = req.body.numero;
-    sala.capacidadMax = req.body.capacidadMax;
-    sala.capacidadDisp = req.body.capacidadDisp;
+    sala.capacidad = req.body.capacidad;
 
     sala.save()
         .then((sala) => {
@@ -39,11 +38,8 @@ router.put('/:id', (req, res, next) => {
                 if (typeof req.body.numero !== 'undefined') {
                     sala.numero = req.body.numero;
                 }
-                if (typeof req.body.capacidadMax !== 'undefined') {
-                    sala.capacidadMax = req.body.capacidadMax;
-                }
-                if (typeof req.body.capacidadDisp !== 'undefined') {
-                    sala.capacidadDisp = req.body.capacidadDisp;
+                if (typeof req.body.capacidad !== 'undefined') {
+                    sala.capacidad = req.body.capacidad;
                 }
 
                 sala.save()

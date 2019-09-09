@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const router = require('express').Router();
 var Movie = mongoose.model('Movie');
 
-//var Objectid = mongoose.Types.ObjectId;
+var ObjectId = mongoose.Types.ObjectId;
 
 router.get('/', (req, res, next) => {
     Movie.find({})
@@ -20,9 +20,9 @@ router.post('/', (req, res, next) => {
 
     let movie = new Movie({
         titulo: req.body.titulo,
-        year: req.body.year,
+        fechaEstreno: req.body.fechaEstreno,
     })
-    res.send(`post movie ${movie.titulo} (${movie.year})`);
+    res.send(`post movie ${movie.titulo} (${movie.fechaEstreno})`);
 
 
     movie.save((err, movie) => {
