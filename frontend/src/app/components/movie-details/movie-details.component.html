@@ -1,0 +1,11 @@
+<div class="row" *ngIf="!movie; else main_content">
+    <h1>Cargando...</h1>
+</div>
+<ng-template #main_content>
+    <div class="row">
+        <div class="col-md-5">
+        {{movie.titulo}}
+        </div>
+    </div>
+</ng-template>
+<button (click)="deleteMovie()">Borrar</button>

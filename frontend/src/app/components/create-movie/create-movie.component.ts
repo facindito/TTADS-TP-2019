@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../../services/movies.service';
-import { Movie} from '../../models/movie';
+import { Movie } from '../../models/movie';
 
 @Component({
   selector: 'app-create-movie',
@@ -15,15 +15,15 @@ export class CreateMovieComponent implements OnInit {
   movie: Movie;
 
   constructor(private moviesService: MoviesService) {
-    this.movie = new Movie();
    }
 
   ngOnInit() {  }
 
   createMovie(titulo, fechaEstreno) {
+    this.movie = new Movie();
     this.movie.titulo = titulo;
-    this.movie.fechaEstreno = fechaEstreno;
-    console.log(this.movie.fechaEstreno);
+    this.movie.fechaEstreno = fechaEstreno.toString();
+    console.log(this.movie.fechaEstreno.toString());
     this.moviesService.postMovie(this.movie);
   }
 

@@ -9,9 +9,10 @@ var movieSchema = new mongoose.Schema({
     poster: { type: String },
     director: { type: String },
     duracion: { type: Number },
-    fechaEstreno: { type: Date },
+    fechaEstreno: { type: String },
     entradasSem: { type: Number },
-    genero: { type: String }
+    genero: { type: String },
+    estado: { type: String}
 }, { timestamps: true });
 
 module.exports = mongoose.model('Movie', movieSchema);

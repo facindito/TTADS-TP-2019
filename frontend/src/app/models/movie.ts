@@ -1,14 +1,11 @@
 export class Movie {
 
-constructor()
-{
-
-}
+constructor() {}
     _id: string;
     titulo: string;
     descripcion: string;
     year: number;
     poster: string;
-    fechaEstreno: Date;
+    fechaEstreno: string;
 }
 

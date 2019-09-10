@@ -15,8 +15,21 @@ router.get('/', (req, res, next) => {
         .catch(next);
 });
 
+router.get('/:id', (req, res, next) => {
+    let id = req.params.id;
+    Movie.findById(id)
+        .then((movie) => {
+            if (!movie) {
+                return res.sendStatus(401);
+            }
+            return res.json({ 'movie': movie })
+        })
+        .catch(next);
+});
+
 router.post('/', (req, res, next) => {
 
+    console.log(req.body.fechaEstreno);
 
     let movie = new Movie({
         titulo: req.body.titulo,

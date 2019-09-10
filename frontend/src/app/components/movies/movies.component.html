@@ -26,7 +26,7 @@
                 <tr *ngFor="let movie of moviesService.movies">
                     <td>{{movie.titulo | json}}</td>
                     <td>{{movie.fechaEstreno | json}}</td>
-                    <td><button (click)="movieDetails(movie._id)">Ver detalle</button></td>
+                    <td><button (click)="movieDetails(movie._id)" [routerLink]="['/movie/', movie._id]">Ver detalle</button></td>
                 </tr>
             </tbody>
         </table>

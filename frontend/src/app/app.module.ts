@@ -6,13 +6,15 @@ import { MoviesComponent } from './components/movies/movies.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CreateMovieComponent } from './components/create-movie/create-movie.component';
 import { AppRoutingModule } from './app-routing.module';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MoviesComponent,
-    CreateMovieComponent
+    CreateMovieComponent,
+    MovieDetailsComponent
   ],
   imports: [
     BrowserModule,
