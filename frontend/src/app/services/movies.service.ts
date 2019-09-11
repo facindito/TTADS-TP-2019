@@ -21,17 +21,26 @@ export class MoviesService {
   getMovies() {
     return this.http.get(`${this.URL_API}`);
   }
+
+  getMoviesFiltrado(estado: string, bandera: string) {
+    return this.http.get(`${this.URL_API}/${estado}/${bandera}/`);
+  }
+
   getOneMovie(id: string) {
     return this.http.get(`${this.URL_API}/${id}`);
   }
+
   postMovie(movie: Movie) {
     console.log(movie);
     return this.http.post(`${this.URL_API}`, movie);
   }
+
   putMovie(movie: Movie) {
     return this.http.put(this.URL_API + `/${movie._id}`, movie);
   }
+
   deleteMovie(_id: string) {
     return this.http.delete(this.URL_API + `/${_id}`);
   }
+
 }

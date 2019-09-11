@@ -13,9 +13,12 @@ export class MoviesComponent implements OnInit {
 
   constructor(private moviesService: MoviesService, private router: Router) { }
   movies: Movie[];
+  moviesC: Movie[];
+  moviesP: Movie[];
 
   ngOnInit() {
     this.getMovies();
+    this.getMoviesFiltrado();
   }
 
   getMovies() {
@@ -24,6 +27,17 @@ export class MoviesComponent implements OnInit {
         this.moviesService.movies = res.movies;
         console.log(this.moviesService.movies);
         });
+  }
+
+  getMoviesFiltrado() {
+    this.moviesService.getMoviesFiltrado('C', 'b')
+    .subscribe((res: any) => {
+      this.moviesC = res.movies;
+    });
+    this.moviesService.getMoviesFiltrado('P', 'b')
+    .subscribe((res: any) => {
+      this.moviesP = res.movies;
+    });
   }
 
   movieDetails(id) {

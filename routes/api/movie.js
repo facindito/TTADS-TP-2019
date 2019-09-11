@@ -15,6 +15,18 @@ router.get('/', (req, res, next) => {
         .catch(next);
 });
 
+router.get('/:estado/:bandera', (req, res, next) => {
+    let estado = req.params.estado;
+    Movie.find({estado: estado})
+        .then((movies) => {
+            if (!movies) {
+                return res.sendStatus(401);
+            }
+            return res.json({ 'movies': movies })
+        })
+        .catch(next);
+});
+
 router.get('/:id', (req, res, next) => {
     let id = req.params.id;
     Movie.findById(id)
@@ -33,7 +45,17 @@ router.post('/', (req, res, next) => {
 
     let movie = new Movie({
         titulo: req.body.titulo,
+        descripcion: req.body.descripcion,
+        poster: req.body.poster,
         fechaEstreno: req.body.fechaEstreno,
+        tipo: req.body.tipo,
+        actores: req.body.actores,
+        argumento: req.body.argumento,
+        director: req.body.director,
+        duracion: req.body.duracion,
+        entradasSem: req.body.entradasSem,
+        genero: req.body.genero,
+        estado: req.body.estado,  
     })
     res.send(`post movie ${movie.titulo} (${movie.fechaEstreno})`);
 
@@ -52,12 +74,18 @@ router.put('/:id', (req, res, next) => {
     Movie.findById(id)
         .then((movie) => {
             if (movie._id.toString() === id.toString()) {
-                if (typeof req.body.titulo !== 'undefined') {
                     movie.titulo = req.body.titulo;
-                }
-                if (typeof req.body.year !== 'undefined') {
-                    movie.year = req.body.year;
-                }
+                    movie.descripcion = req.body.descripcion;
+                    movie.poster = req.body.poster;
+                    movie.fechaEstreno = req.body.fechaEstreno;
+                    movie.tipo = req.body.tipo;
+                    movie.actores = req.body.actores;
+                    movie.argumento = req.body.argumento;
+                    movie.director = req.body.director;
+                    movie.duracion = req.body.duracion;
+                    movie.entradasSem = req.body.entradasSem;
+                    movie.genero = req.body.genero;
+                    movie.estado = req.body.estado;                
 
                 movie.save()
                     .then((movie) => {

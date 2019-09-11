@@ -7,7 +7,7 @@
             <th></th>
         </thead>
         <tbody>
-                <tr *ngFor="let movie of moviesService.movies">
+                <tr *ngFor="let movie of moviesC">
                 <td>{{movie.titulo | json}}</td>
                 <td>{{movie.fechaEstreno | json}}</td>
                 <td><button (click)="movieDetails(movie._id)">Ver detalle</button></td>
@@ -23,10 +23,28 @@
                 <th>Fecha de estreno</th>
             </thead>
             <tbody>
+                <tr *ngFor="let movie of moviesP">
+                    <td>{{movie.titulo}}</td>
+                    <td>{{movie.fechaEstreno}}</td>
+                    <td><button (click)="movieDetails(movie._id)">Ver detalle</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="conteiner">
+        <h1>Todas las películas</h1>
+        <table>
+            <thead>
+                <th>Titulo</th>
+                <th>Fecha de estreno</th>
+                <th>Estado</th>                
+            </thead>
+            <tbody>
                 <tr *ngFor="let movie of moviesService.movies">
-                    <td>{{movie.titulo | json}}</td>
-                    <td>{{movie.fechaEstreno | json}}</td>
-                    <td><button (click)="movieDetails(movie._id)" [routerLink]="['/movie/', movie._id]">Ver detalle</button></td>
+                    <td>{{movie.titulo}}</td>
+                    <td>{{movie.fechaEstreno}}</td>
+                    <td>{{movie.estado}}</td>
+                    <td><button (click)="movieDetails(movie._id)">Ver detalle</button></td>
                 </tr>
             </tbody>
         </table>

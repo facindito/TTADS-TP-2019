@@ -2,7 +2,6 @@ var mongoose = require('mongoose');
 
 var movieSchema = new mongoose.Schema({
     titulo: { type: String },
-    year: { type: Number },
     tipo: { type: String },
     actores: { type: String },
     argumento: { type: String },
