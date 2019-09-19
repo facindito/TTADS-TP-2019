@@ -1,26 +1,36 @@
 <script>
-        angular.module('dateInputExample', [])
-          .controller('DateController', ['$scope', function($scope) {
+    angular.module('dateInputExample', [])
+        .controller('DateController', ['$scope', function($scope) {
             $scope.example = {
-              value: new Date()
+                value: new Date()
             };
-          }]);
-     </script>
-<body>
+        }]);
+</script>
 
-<h2>Crear película</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-5">
+            <div class="card">
+                <div class="card-body">
+                    <form #movieForm="ngForm" (ngSubmit)="addMovie(movieForm)">
+                        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="moviesService.selectedMovies._id">
+                        <div class="row">
+                            <div class="input-group-text col-sm-12">
+                                <input type="text" name="titulo" #titulo="ngModel" [(ngModel)]="moviesService.selectedMovies.titulo" placeholder="Titulo">
+                            </div>
+                            <div class="input-group-text col-sm-12">
+                                <input type="date" name="fechaEstreno" #fechaEstreno="ngModel" [(ngModel)]="moviesService.selectedMovies.fechaEstreno" placeholder="YYYY/MM/DD">
+                            </div>
+                            <div class="card-link">
+                                <div class="input-group-text col-sm-12">
+                                    <button class="btn btn-primary " (click)="resetForm(movieForm)">Guardar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
 
-<div>
-    <label>Título:</label>
-    <br>
-    <input type="text" [(ngModel)]="titulo">
+    </div>
 </div>
-<div>
-    <label>Fecha de estreno:</label>
-    <br>
-    <input type="date" [(ngModel)]="fechaEstreno" ng-model="example.value"
-        placeholder="yyyy-MM-dd" required />
-</div>
-    <br>
-    <button (click)="createMovie(titulo, fechaEstreno)">Enviar</button>
-</body>
