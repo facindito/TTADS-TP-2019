@@ -30,7 +30,7 @@ export class CreateMovieComponent implements OnInit {
       this.moviesService.postMovie(form.value)
         .subscribe(res => {
           this.resetForm(form);
-        })
+        });
      // }
 
   }

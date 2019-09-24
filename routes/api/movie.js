@@ -41,8 +41,6 @@ router.get('/:id', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
 
-    console.log(req.body.fechaEstreno);
-
     let movie = new Movie({
         titulo: req.body.titulo,
         descripcion: req.body.descripcion,
@@ -57,8 +55,6 @@ router.post('/', (req, res, next) => {
         genero: req.body.genero,
         estado: req.body.estado,  
     })
-    res.send(`post movie ${movie.titulo} (${movie.fechaEstreno})`);
-
 
     movie.save((err, movie) => {
         if (err) {
