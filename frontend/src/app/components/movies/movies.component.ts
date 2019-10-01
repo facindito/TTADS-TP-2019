@@ -18,17 +18,16 @@ export class MoviesComponent implements OnInit {
 
   ngOnInit() {
     this.getMovies();
-    this.getMoviesFiltrado();
+    //this.getMoviesFiltrado();
   }
 
   getMovies() {
     this.moviesService.getMovies()
       .subscribe((res: any) => {
         this.moviesService.movies = res.movies;
-        console.log(this.moviesService.movies);
         });
   }
-
+/** 
   getMoviesFiltrado() {
     this.moviesService.getMoviesFiltrado('C', 'b')
     .subscribe((res: any) => {
@@ -39,6 +38,7 @@ export class MoviesComponent implements OnInit {
       this.moviesP = res.movies;
     });
   }
+  **/
 
   movieDetails(id) {
     this.router.navigate(['/pelicula', id]);

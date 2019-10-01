@@ -14,10 +14,10 @@ router.get('/', (req, res, next) => {
         })
         .catch(next);
 });
-
+/*
 router.get('/:estado/:bandera', (req, res, next) => {
     let estado = req.params.estado;
-    Movie.find({estado: estado})
+    Movie.find({ estado: estado })
         .then((movies) => {
             if (!movies) {
                 return res.sendStatus(401);
@@ -26,7 +26,7 @@ router.get('/:estado/:bandera', (req, res, next) => {
         })
         .catch(next);
 });
-
+*/
 router.get('/:id', (req, res, next) => {
     let id = req.params.id;
     Movie.findById(id)
@@ -53,7 +53,7 @@ router.post('/', (req, res, next) => {
         duracion: req.body.duracion,
         entradasSem: req.body.entradasSem,
         genero: req.body.genero,
-        estado: req.body.estado,  
+        estado: req.body.estado,
     })
 
     movie.save((err) => {
@@ -70,18 +70,18 @@ router.put('/:id', (req, res, next) => {
     Movie.findById(id)
         .then((movie) => {
             if (movie._id.toString() === id.toString()) {
-                    movie.titulo = req.body.titulo;
-                    movie.descripcion = req.body.descripcion;
-                    movie.poster = req.body.poster;
-                    movie.fechaEstreno = req.body.fechaEstreno;
-                    movie.tipo = req.body.tipo;
-                    movie.actores = req.body.actores;
-                    movie.argumento = req.body.argumento;
-                    movie.director = req.body.director;
-                    movie.duracion = req.body.duracion;
-                    movie.entradasSem = req.body.entradasSem;
-                    movie.genero = req.body.genero;
-                    movie.estado = req.body.estado;                
+                movie.titulo = req.body.titulo;
+                movie.descripcion = req.body.descripcion;
+                movie.poster = req.body.poster;
+                movie.fechaEstreno = req.body.fechaEstreno;
+                movie.tipo = req.body.tipo;
+                movie.actores = req.body.actores;
+                movie.argumento = req.body.argumento;
+                movie.director = req.body.director;
+                movie.duracion = req.body.duracion;
+                movie.entradasSem = req.body.entradasSem;
+                movie.genero = req.body.genero;
+                movie.estado = req.body.estado;
 
                 movie.save()
                     .then((movie) => {
@@ -112,5 +112,16 @@ router.delete('/:id', (req, res, next) => {
         }).catch(next);
     //res.sendStatus(200);
 })
+
+router.get('/proximamente', (req, res, next) => {
+    Movie.find({ estado: 'P' })
+        .then((movies) => {
+            if (!movies) {
+                return res.sendStatus(401);
+            }
+            return res.json({ 'movies': movies })
+        })
+        .catch(next);
+});
 
 module.exports = router;

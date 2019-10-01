@@ -1,0 +1,37 @@
+h5 {
+    color: white;
+    position: relative;
+    font-size: 10px;
+    bottom: 0%;
+    left: 0;
+    right: 0;
+}
+
+#galeria {
+    position: relative;
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+}
+
+#galeria a:hover {
+    transition: .6s;
+    opacity: .6;
+    cursor: pointer;
+}
+
+#galeria a img {
+    width: 100%;
+    cursor: pointer;
+}
+
+#item {
+    position: relative;
+    padding: 10px;
+    transition: .6s;
+    display: inline-block;
+}
+
+.card {
+    background-color: black;
+}

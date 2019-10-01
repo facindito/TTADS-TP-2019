@@ -23,9 +23,13 @@ export class MoviesService {
   getMovies() {
     return this.http.get(`${this.URL_API}`);
   }
-
+  /*
   getMoviesFiltrado(estado: string, bandera: string) {
     return this.http.get(`${this.URL_API}/${estado}/${bandera}/`);
+  }
+  */
+  getMovieProx(){
+    return this.http.get(`${this.URL_API}/proximamente`);
   }
 
   getOneMovie(id: string) {

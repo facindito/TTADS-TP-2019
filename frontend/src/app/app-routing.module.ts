@@ -4,7 +4,6 @@ import { MoviesComponent } from './components/movies/movies.component';
 import { CreateMovieComponent } from './components/create-movie/create-movie.component';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 import { CreateSalaComponent } from './components/create-sala/create-sala.component';
-
 const routes: Routes = [
     {
       path: 'home',
