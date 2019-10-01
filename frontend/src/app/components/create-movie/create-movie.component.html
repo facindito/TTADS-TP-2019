@@ -19,6 +19,9 @@
                                 <input type="text" name="titulo" #titulo="ngModel" [(ngModel)]="moviesService.selectedMovies.titulo" placeholder="Titulo">
                             </div>
                             <div class="input-group-text col-sm-12">
+                                <input type="text" name="genero" #genero="ngModel" [(ngModel)]="moviesService.selectedMovies.genero" placeholder="Género">
+                            </div>                            
+                            <div class="input-group-text col-sm-12">
                                 <input type="date" name="fechaEstreno" #fechaEstreno="ngModel" [(ngModel)]="moviesService.selectedMovies.fechaEstreno" placeholder="YYYY/MM/DD">
                             </div>
                             <div class="card-link">

@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var salaSchema = new mongoose.Schema({
-    numero: { type: Number },
+    numero: { type: String },
     capacidad: { type: Number },
 }, { timestamps: true });
 

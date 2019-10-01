@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Movie } from '../models/movie';
-import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class MoviesService {
 
   selectedMovies: Movie;
   movies: Movie[];
   movie: Movie;
   readonly URL_API = 'http://localhost:3000/api/movies';
+
   constructor(private http: HttpClient) {
     this.selectedMovies = new Movie();
    }
@@ -31,7 +33,6 @@ export class MoviesService {
   }
 
   postMovie(movie: Movie) {
-    console.log(movie);
     return this.http.post(`${this.URL_API}`, movie);
   }
 

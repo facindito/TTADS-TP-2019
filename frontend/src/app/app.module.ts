@@ -8,13 +8,15 @@ import { CreateMovieComponent } from './components/create-movie/create-movie.com
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
+import { CreateSalaComponent } from './components/create-sala/create-sala.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MoviesComponent,
     CreateMovieComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    CreateSalaComponent
   ],
   imports: [
     BrowserModule,

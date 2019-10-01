@@ -32,8 +32,8 @@ export class CreateMovieComponent implements OnInit {
           this.resetForm(form);
         });
      // }
-
   }
+
   resetForm(form?: NgForm) {
     if (form) {
       form.reset();

@@ -56,7 +56,7 @@ router.post('/', (req, res, next) => {
         estado: req.body.estado,  
     })
 
-    movie.save((err, movie) => {
+    movie.save((err) => {
         if (err) {
             return res.status(500).send(err.message);
         }

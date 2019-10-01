@@ -16,18 +16,18 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-    let sala = new Sala();
+    let sala = new Sala({
 
-    sala.numero = req.body.numero;
-    sala.capacidad = req.body.capacidad;
+    numero: req.body.numero,
+    capacidad: req.body.capacidad
+    })
 
-    sala.save()
-        .then((sala) => {
-            if (sala) {
-                res.sendStatus(200);
-            }
-        })
-        .catch(next);
+    sala.save((err) => {
+        if (err) {
+            return res.status(500).send(err.message);
+        }
+        res.status(200);
+    });
 });
 
 router.put('/:id', (req, res, next) => {

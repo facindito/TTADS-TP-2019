@@ -1,10 +1,10 @@
 export class Movie {
 
-    constructor(_id='',titulo='',fechaEstreno='') {
-            this._id=_id;
-            this.titulo=titulo;
-            this.fechaEstreno=fechaEstreno;
-    
+    constructor(_id= '', titulo= '', fechaEstreno= '') {
+        this._id = _id;
+        this.titulo = titulo;
+        this.fechaEstreno = fechaEstreno;
+
     }
         _id: string;
         titulo: string;
@@ -19,6 +19,4 @@ export class Movie {
         entradasSem: number;
         genero: string;
         estado: string;
-    }
-    
-    
+}
