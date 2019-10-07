@@ -14,10 +14,9 @@ router.get('/', (req, res, next) => {
         })
         .catch(next);
 });
-/*
-router.get('/:estado/:bandera', (req, res, next) => {
-    let estado = req.params.estado;
-    Movie.find({ estado: estado })
+
+router.get('/proximamente', (req, res, next) => {
+    Movie.find({ estado: 'P' })
         .then((movies) => {
             if (!movies) {
                 return res.sendStatus(401);
@@ -26,7 +25,18 @@ router.get('/:estado/:bandera', (req, res, next) => {
         })
         .catch(next);
 });
-*/
+
+router.get('/cartelera', (req, res, next) => {
+    Movie.find({ estado: 'C' })
+        .then((movies) => {
+            if (!movies) {
+                return res.sendStatus(401);
+            }
+            return res.json({ 'movies': movies })
+        })
+        .catch(next);
+});
+
 router.get('/:id', (req, res, next) => {
     let id = req.params.id;
     Movie.findById(id)
@@ -112,16 +122,5 @@ router.delete('/:id', (req, res, next) => {
         }).catch(next);
     //res.sendStatus(200);
 })
-
-router.get('/proximamente', (req, res, next) => {
-    Movie.find({ estado: 'P' })
-        .then((movies) => {
-            if (!movies) {
-                return res.sendStatus(401);
-            }
-            return res.json({ 'movies': movies })
-        })
-        .catch(next);
-});
 
 module.exports = router;

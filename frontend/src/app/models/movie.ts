@@ -8,7 +8,6 @@ export class Movie {
     }
         _id: string;
         titulo: string;
-        descripcion: string;
         poster: string;
         fechaEstreno: string;
         tipo: string;

@@ -1,59 +1,7 @@
-<!--
 <div class="conteiner">
     <h1>En cartelera</h1>
-    <table>
-        <thead>
-            <th>Titulo</th>
-            <th>Fecha de estreno</th>
-            <th></th>
-        </thead>
-        <tbody>
-            <tr *ngFor="let movie of moviesC">
-                <td>{{movie.titulo | json}}</td>
-                <td>{{movie.fechaEstreno | json}}</td>
-                <td><button (click)="movieDetails(movie._id)">Ver detalle</button></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-<div class="conteiner">
-    <h1>Próximamente</h1>
-    <table>
-        <thead>
-            <th>Titulo</th>
-            <th>Fecha de estreno</th>
-        </thead>
-        <tbody>
-            <tr *ngFor="let movie of moviesP">
-                <td>{{movie.titulo}}</td>
-                <td>{{movie.fechaEstreno}}</td>
-                <td><button (click)="movieDetails(movie._id)">Ver detalle</button></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
--->
-<!--<div class="conteiner">
-    <h1>Todas las películas</h1>
-    <table>
-        <thead>
-            <th>Titulo</th>
-            <th>Fecha de estreno</th>
-            <th>Estado</th>
-        </thead>
-        <tbody>
-            <tr *ngFor="let movie of moviesService.movies">
-                <td>{{movie.titulo}}</td>
-                <td>{{movie.fechaEstreno}}</td>
-                <td>{{movie.estado}}</td>
-                <td><button (click)="movieDetails(movie._id)">Ver detalle</button></td>
-            </tr>
-        </tbody>
-    </table>
-</div>-->
-<div class="conteiner">
     <div class="row" id="galeria">
-        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12" id="item" *ngFor="let movie of moviesService.movies">
+        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12" id="item" *ngFor="let movie of moviesService.moviesCart">
             <a ng-href="" (click)="movieDetails(movie._id)">
                 <div class="card" style="width: auto">
                     <img src="/assets/img/joker-790658206-large.jpg" alt="..." class="card-img-top">
@@ -66,3 +14,19 @@
         </div>
     </div>
 </div>
+<div class="conteiner">
+        <h1>Próximamente</h1>
+        <div class="row" id="galeria">
+            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12" id="item" *ngFor="let movie of moviesService.moviesProx">
+                <a ng-href="" (click)="movieDetails(movie._id)">
+                    <div class="card" style="width: auto">
+                        <img src="/assets/img/joker-790658206-large.jpg" alt="..." class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">{{movie.titulo}}</h5>
+                            <h5 class="card-title">{{movie.fechaEstreno}}</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>

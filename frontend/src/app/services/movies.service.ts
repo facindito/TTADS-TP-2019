@@ -12,24 +12,24 @@ export class MoviesService {
   selectedMovies: Movie;
   movies: Movie[];
   movie: Movie;
+  moviesProx: Movie[];
+  moviesCart: Movie[];
   readonly URL_API = 'http://localhost:3000/api/movies';
 
   constructor(private http: HttpClient) {
     this.selectedMovies = new Movie();
    }
 
-
-
   getMovies() {
     return this.http.get(`${this.URL_API}`);
   }
-  /*
-  getMoviesFiltrado(estado: string, bandera: string) {
-    return this.http.get(`${this.URL_API}/${estado}/${bandera}/`);
-  }
-  */
-  getMovieProx(){
+
+  getMovieProx() {
     return this.http.get(`${this.URL_API}/proximamente`);
+  }
+
+  getMovieCart() {
+    return this.http.get(`${this.URL_API}/cartelera`);
   }
 
   getOneMovie(id: string) {
