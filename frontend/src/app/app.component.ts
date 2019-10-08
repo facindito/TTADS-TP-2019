@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -8,5 +9,7 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  title = 'frontend';
+  public constructor(private titleService: Title ) {
+    this.titleService.setTitle('Cine TTADS');
+  }
 }

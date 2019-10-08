@@ -24,8 +24,10 @@ mongoose.connect('mongodb://localhost:27017/movies', (err, res) => {
         console.log('ERROR : connecting to Database. ' + err);
     }
 });
+
 require('./models/movie.js');
 require('./models/sala.js');
+require('./models/usuario.js');
 
 app.listen(app.get('port'), () => {
     console.log(`Server running on http://localhost:${app.get('port')}`);

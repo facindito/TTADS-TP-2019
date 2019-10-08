@@ -7,4 +7,4 @@ var usuarioSchema = new mongoose.Schema({
 
 }, { timestamps: true });
 
-module.exports = mongoose.model('usuario', usuarioSchema);
+module.exports = mongoose.model('Usuario', usuarioSchema);
