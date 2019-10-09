@@ -1,0 +1,47 @@
+<div class="page-header" id="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div id="logo-container">
+            <a href="#" [routerLink]="['/']">
+                <img alt="logo" src="/assets/img/movie-icon.png">
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li>
+                    <a class="nav-link" href="">Cartelera</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="">Proximamente</a>
+                </li>
+                <li>
+                    <a class="nav-link" [routerLink]="['/crear-pelicula']">Crear película</a>
+                </li>
+                <li>
+                    <a class="nav-link" [routerLink]="['/crear-sala']">Crear sala</a>
+                </li>
+                <!--
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Generos
+                </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Accion</a>
+                        <a class="dropdown-item" href="#">Aventura</a>
+                    </div>
+
+                </li>
+                -->
+                <li>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">
+                    <i class="fa fa-search text-grey" aria-hidden="true"></i>
+                  </button>
+                    </form>
+                </li>
+            </ul>
+            <a class="nav-link" [routerLink]="['/login']">Ingresar</a>/
+            <a class="nav-link" href="">Registrarse</a>
+        </div>
+    </nav>
+</div>
