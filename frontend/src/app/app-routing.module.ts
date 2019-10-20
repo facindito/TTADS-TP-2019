@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MoviesComponent } from './components/movies/movies.component';
-import { CreateMovieComponent } from './components/create-movie/create-movie.component';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
-import { CreateSalaComponent } from './components/create-sala/create-sala.component';
 import { LoginComponent } from './components/login/login.component';
+import { ProxEstrenosComponent } from './components/prox-estrenos/prox-estrenos.component';
+import { MovieCreateComponent } from './components/movie-create/movie-create.component';
+import { SalaCreateComponent } from './components/sala-create/sala-create.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
     {
@@ -17,7 +19,7 @@ const routes: Routes = [
       },
       {
         path: 'crear-pelicula',
-        component: CreateMovieComponent
+        component: MovieCreateComponent
       },
       {
         path: 'pelicula/:id',
@@ -29,7 +31,15 @@ const routes: Routes = [
       },
       {
         path: 'crear-sala',
-        component: CreateSalaComponent
+        component: SalaCreateComponent
+      },
+      {
+        path: 'proximamente',
+        component: ProxEstrenosComponent
+      },
+      {
+        path: 'registrarse',
+        component: RegisterComponent
       }
   ];
 

@@ -7,16 +7,13 @@
     text-decoration: none;
     font-family: sans-serif;
     box-sizing: border-box;
-    border-radius: 10px 10px 10px 10px;
-    -moz-border-radius: 10px 10px 10px 10x;
-    -webkit-border-radius: 10px 10px 10px 10px;
     border: 0px solid #000000;
 }
 
 .container {
     position: relative;
     margin: auto;
-    box-sizing: content-box;
+    /** box-sizing: content-box;*/
     width: 100%;
     background-color: #1b0c36;
     min-height: 666px;

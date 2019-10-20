@@ -8,10 +8,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li>
-                    <a class="nav-link" href="">Cartelera</a>
-                </li>
-                <li>
-                    <a class="nav-link" href="">Proximamente</a>
+                    <a class="nav-link" [routerLink]="['/proximamente']">Proximamente</a>
                 </li>
                 <li>
                     <a class="nav-link" [routerLink]="['/crear-pelicula']">Crear película</a>
@@ -41,7 +38,7 @@
                 </li>
             </ul>
             <a class="nav-link" [routerLink]="['/login']">Ingresar</a>/
-            <a class="nav-link" href="">Registrarse</a>
+            <a class="nav-link" [routerLink]="['/registrarse']">Registrarse</a>
         </div>
     </nav>
 </div>

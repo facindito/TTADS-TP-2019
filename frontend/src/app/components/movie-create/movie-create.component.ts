@@ -4,22 +4,16 @@ import { Movie } from '../../models/movie';
 import { NgForm } from '@angular/forms';
 
 @Component({
-  selector: 'app-create-movie',
-  templateUrl: './create-movie.component.html',
-  styleUrls: ['./create-movie.component.css'],
-  providers: [MoviesService]
+  selector: 'app-movie-create',
+  templateUrl: './movie-create.component.html',
+  styleUrls: ['./movie-create.component.css']
 })
-export class CreateMovieComponent implements OnInit {
+export class MovieCreateComponent implements OnInit {
 
-  titulo: string;
-  fechaEstreno: Date;
-  movie: Movie;
+  constructor(private moviesService: MoviesService) { }
 
-  constructor(private moviesService: MoviesService) {
-   }
-
-  ngOnInit() {  }
-
+  ngOnInit() {
+  }
   addMovie(form?: NgForm) {
     /*if(form.value._id){
       this.moviesService.putMovie(form.value)

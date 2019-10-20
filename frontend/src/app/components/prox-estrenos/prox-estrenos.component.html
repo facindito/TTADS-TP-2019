@@ -1,9 +1,7 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/css/swiper.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/js/swiper.min.js"></script>
 <div class="conteiner">
-    <h1>En cartelera</h1>
+    <h1>Próximamente</h1>
     <div class="row" id="galeria">
-        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12" id="item" *ngFor="let movie of moviesService.moviesCart">
+        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12" id="item" *ngFor="let movie of moviesService.moviesProx">
             <a ng-href="" (click)="movieDetails(movie._id)">
                 <div class="card" style="width: auto">
                     <img src="/assets/img/joker-790658206-large.jpg" alt="..." class="card-img-top">
@@ -11,6 +9,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{movie.titulo}}</h5>
                     </div>
+
                 </div>
             </a>
         </div>

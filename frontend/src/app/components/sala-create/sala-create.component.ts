@@ -4,20 +4,16 @@ import { NgForm } from '@angular/forms';
 import { Sala } from '../../models/sala';
 
 @Component({
-  selector: 'app-create-sala',
-  templateUrl: './create-sala.component.html',
-  styleUrls: ['./create-sala.component.css'],
-  providers: [SalasService]
+  selector: 'app-sala-create',
+  templateUrl: './sala-create.component.html',
+  styleUrls: ['./sala-create.component.css']
 })
-export class CreateSalaComponent implements OnInit {
-
-  numero: string;
-  capacidad: number;
+export class SalaCreateComponent implements OnInit {
 
   constructor(private salasService: SalasService) { }
 
-  ngOnInit() {  }
-
+  ngOnInit() {
+  }
   addSala(form: NgForm) {
     /*if(form.value._id){
       this.moviesService.putMovie(form.value)

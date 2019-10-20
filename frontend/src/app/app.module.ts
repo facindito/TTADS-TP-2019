@@ -4,21 +4,27 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { HttpClientModule } from '@angular/common/http';
-import { CreateMovieComponent } from './components/create-movie/create-movie.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
-import { CreateSalaComponent } from './components/create-sala/create-sala.component';
 import { LoginComponent } from './components/login/login.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { ProxEstrenosComponent } from './components/prox-estrenos/prox-estrenos.component';
+import { SalaCreateComponent } from './components/sala-create/sala-create.component';
+import { MovieCreateComponent } from './components/movie-create/movie-create.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MoviesComponent,
-    CreateMovieComponent,
     MovieDetailsComponent,
-    CreateSalaComponent,
-    LoginComponent
+    LoginComponent,
+    NavbarComponent,
+    ProxEstrenosComponent,
+    SalaCreateComponent,
+    MovieCreateComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
