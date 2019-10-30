@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const router = require('express').Router();
-var Movie = mongoose.model('Movie');
+const Movie = mongoose.model('Movie');
+
 
 var ObjectId = mongoose.Types.ObjectId;
 
@@ -37,6 +38,19 @@ router.get('/cartelera', (req, res, next) => {
         .catch(next);
 });
 
+router.get('/search/:titulo', (req, res, next) => {
+    var titulo = req.params.titulo;
+    var regex = new RegExp(titulo);
+    Movie.find({ titulo: regex, estado: 'C' })
+        .then((movies) => {
+            if (!movies) {
+                return res.sendStatus(401);
+            }
+            return res.json({ 'movies': movies })
+        })
+        .catch(next);
+});
+
 router.get('/:id', (req, res, next) => {
     let id = req.params.id;
     Movie.findById(id)
@@ -50,7 +64,6 @@ router.get('/:id', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-
     let movie = new Movie({
         titulo: req.body.titulo,
         descripcion: req.body.descripcion,
@@ -121,6 +134,8 @@ router.delete('/:id', (req, res, next) => {
             }
         }).catch(next);
     //res.sendStatus(200);
-})
+});
+
+
 
 module.exports = router;

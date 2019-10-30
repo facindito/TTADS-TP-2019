@@ -15,7 +15,7 @@ export class MoviesComponent implements OnInit {
   movies: Movie[];
 
   ngOnInit() {
-    this.getMovieProx();
+    //this.getMovieProx();
     this.getMovieCart();
   }
 
@@ -26,12 +26,12 @@ export class MoviesComponent implements OnInit {
         });
   }
 
-  getMovieProx() {
+ /* getMovieProx() {
     this.moviesService.getMovieProx()
       .subscribe((res: any) => {
         this.moviesService.moviesProx = res.movies;
         });
-  }
+  }*/
 
   getMovieCart() {
     this.moviesService.getMovieCart()

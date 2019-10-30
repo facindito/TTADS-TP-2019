@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
   }
 
   registro(form?: NgForm){
-    this.usuariosService.postUsuario(form.value)
+    this.usuariosService.registro(form.value)
       .subscribe(res=>{
         this.resetForm(form);
       });

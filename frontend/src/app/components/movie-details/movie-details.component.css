@@ -1,0 +1,22 @@
+h5 {
+    color: white;
+    position: relative;
+    font-size: 20px;
+    bottom: 0%;
+    left: 0;
+    right: 0;
+}
+
+img {
+    width: 100%;
+    cursor: pointer;
+}
+
+.contenido {
+    float: auto;
+}
+
+.row {
+    background-color: black;
+    padding-top: 20px;
+}

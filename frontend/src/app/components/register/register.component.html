@@ -7,6 +7,9 @@
             <div class="card-body">
                 <form #regForm="ngForm" (ngSubmit)="registro(regForm)">
                     <div class="input-group form-group">
+                        <input name="usuario" [(ngModel)]="usuariosService.selectedUsuario.usuario" type="text" class="form-control" placeholder="Usuario">
+                    </div>
+                    <div class="input-group form-group">
                         <input name="email" [(ngModel)]="usuariosService.selectedUsuario.email" type="text" class="form-control" placeholder="Email">
                     </div>
                     <div class="input-group form-group">

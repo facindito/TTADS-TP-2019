@@ -13,6 +13,7 @@ import { ProxEstrenosComponent } from './components/prox-estrenos/prox-estrenos.
 import { SalaCreateComponent } from './components/sala-create/sala-create.component';
 import { MovieCreateComponent } from './components/movie-create/movie-create.component';
 import { RegisterComponent } from './components/register/register.component';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { RegisterComponent } from './components/register/register.component';
     ProxEstrenosComponent,
     SalaCreateComponent,
     MovieCreateComponent,
-    RegisterComponent
+    RegisterComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

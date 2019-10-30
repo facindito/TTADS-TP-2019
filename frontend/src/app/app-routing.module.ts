@@ -7,6 +7,7 @@ import { ProxEstrenosComponent } from './components/prox-estrenos/prox-estrenos.
 import { MovieCreateComponent } from './components/movie-create/movie-create.component';
 import { SalaCreateComponent } from './components/sala-create/sala-create.component';
 import { RegisterComponent } from './components/register/register.component';
+import { SearchComponent } from './components/search/search.component';
 
 const routes: Routes = [
     {
@@ -40,6 +41,10 @@ const routes: Routes = [
       {
         path: 'registrarse',
         component: RegisterComponent
+      },
+      {
+        path:'search',
+        component: SearchComponent
       }
   ];
 

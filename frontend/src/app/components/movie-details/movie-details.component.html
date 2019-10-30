@@ -2,9 +2,19 @@
     <h1>Cargando...</h1>
 </div>
 <ng-template #main_content>
-    <div class="row">
-        <div class="col-md-12" style="color : white;">
-            {{movie.titulo}} {{movie.descripcion}} {{movie.fechaEstreno}} {{movie.actores}} {{movie.argumento}} {{movie.director}} {{movie.duracion}} {{movie.genero}}
+    <div class="conteiner">
+        <div class="row" p-4>
+            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12" style="color : white;">
+                <img src="/assets/img/joker-790658206-large.jpg" alt="...">
+            </div>
+            <div class="contenido col-lg-6">
+                <h5>{{movie.fechaEstreno}}</h5>
+                <h5>{{movie.actores}}</h5>
+                <h5>{{movie.argumento}}</h5>
+                <h5>{{movie.director}}</h5>
+                <h5>{{movie.duracion}}</h5>
+                <h5>{{movie.genero}}</h5>
+            </div>
         </div>
     </div>
 </ng-template>

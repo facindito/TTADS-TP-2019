@@ -14,6 +14,8 @@ export class MoviesService {
   movie: Movie;
   moviesProx: Movie[];
   moviesCart: Movie[];
+  search: Movie[];
+  titulo: string;
   readonly URL_API = 'http://localhost:3000/api/movies';
 
   constructor(private http: HttpClient) {
@@ -30,6 +32,9 @@ export class MoviesService {
 
   getMovieCart() {
     return this.http.get(`${this.URL_API}/cartelera`);
+  }
+  getSearch(titulo: string){
+    return this.http.get(`${this.URL_API}/search/${titulo}`);
   }
 
   getOneMovie(id: string) {

@@ -4,6 +4,7 @@ export class Usuario {
     }
 
     _id: string;
+    usuario: string;
     email: string;
     password: string;
 }

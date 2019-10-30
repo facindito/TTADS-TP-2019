@@ -1,0 +1,110 @@
+h5 {
+    color: white;
+    position: relative;
+    font-size: 10px;
+    bottom: 0%;
+    left: 0;
+    right: 0;
+}
+
+h1 {
+    color: goldenrod;
+}
+
+#galeria {
+    position: relative;
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+}
+
+#galeria a:hover {
+    transition: .6s;
+    opacity: .6;
+    cursor: pointer;
+}
+
+#galeria a img {
+    width: 100%;
+    cursor: pointer;
+}
+
+#item {
+    position: relative;
+    padding: 10px;
+    transition: .6s;
+    display: inline-block;
+}
+
+.card {
+    background-color: black;
+}
+
+
+/****************/
+
+.box {
+    width: 200px;
+    height: 300px;
+    position: relative;
+    border: 1px solid #BBB;
+    background: #eee;
+    float: left;
+    margin: 20px
+}
+
+.ribbon {
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    z-index: 1;
+    overflow: hidden;
+    width: 75px;
+    height: 75px;
+    text-align: right;
+}
+
+.ribbon span {
+    font-size: 10px;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    line-height: 20px;
+    transform: rotate(45deg);
+    width: 100px;
+    display: block;
+    background: #ED8F03;
+    background: linear-gradient(#FFB75E 0%, #ED8F03 100%);
+    box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+    position: absolute;
+    top: 19px;
+    right: -21px;
+}
+
+.ribbon span::before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: 100%;
+    z-index: -1;
+    border-left: 3px solid #ED8F03;
+    border-right: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-top: 3px solid #ED8F03;
+}
+
+.ribbon span::after {
+    content: '';
+    position: absolute;
+    right: 0%;
+    top: 100%;
+    z-index: -1;
+    border-right: 3px solid #ED8F03;
+    border-left: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-top: 3px solid #ED8F03;
+}
+
+
+/*****************/

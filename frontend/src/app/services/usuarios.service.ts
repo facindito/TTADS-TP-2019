@@ -18,7 +18,11 @@ export class UsuariosService {
   }
 
   login(usuario: Usuario) {
-    return this.http.post(this.URL_API + `/login`, usuario);
+    return this.http.post(this.URL_API + `/signin`, usuario);
+  }
+
+  registro(usuario: Usuario){
+    return this.http.post(this.URL_API + `/signup`, usuario);
   }
 
   getUsuario() {
