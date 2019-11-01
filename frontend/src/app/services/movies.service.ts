@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Movie } from '../models/movie';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 
 @Injectable({
@@ -20,7 +20,7 @@ export class MoviesService {
 
   constructor(private http: HttpClient) {
     this.selectedMovies = new Movie();
-   }
+  }
 
   getMovies() {
     return this.http.get(`${this.URL_API}`);
@@ -33,7 +33,7 @@ export class MoviesService {
   getMovieCart() {
     return this.http.get(`${this.URL_API}/cartelera`);
   }
-  getSearch(titulo: string){
+  getSearch(titulo: string) {
     return this.http.get(`${this.URL_API}/search/${titulo}`);
   }
 

@@ -9,7 +9,7 @@ import { Title } from '@angular/platform-browser';
 })
 
 export class AppComponent {
-  public constructor(private titleService: Title ) {
+  public constructor(private titleService: Title) {
     this.titleService.setTitle('Cine TTADS');
   }
 }

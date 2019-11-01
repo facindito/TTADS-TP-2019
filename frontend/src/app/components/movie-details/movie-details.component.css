@@ -19,4 +19,24 @@ img {
 .row {
     background-color: black;
     padding-top: 20px;
+    display: flex;
+}
+
+.column1 {
+    flex: 20%;
+  }
+
+.column2 {
+    flex: 80%;
+}
+
+.dlt_btn {
+    color: black;
+    background-color: #FFC312;
+    width: 100px;
+}
+
+.dlt_btn:hover {
+    color: black;
+    background-color: white;
 }

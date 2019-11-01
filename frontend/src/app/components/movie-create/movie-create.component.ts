@@ -21,11 +21,11 @@ export class MovieCreateComponent implements OnInit {
           this.resetForm();
         })
     }else{*/
-      this.moviesService.postMovie(form.value)
-        .subscribe(res => {
-          this.resetForm(form);
-        });
-     // }
+    this.moviesService.postMovie(form.value)
+      .subscribe(res => {
+        this.resetForm(form);
+      });
+    // }
   }
 
   resetForm(form?: NgForm) {

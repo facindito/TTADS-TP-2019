@@ -16,14 +16,14 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  registro(form?: NgForm){
+  registro(form?: NgForm) {
     this.usuariosService.registro(form.value)
-      .subscribe(res=>{
+      .subscribe(res => {
         this.resetForm(form);
       });
   }
-  resetForm(form?: NgForm){
-    if(form){
+  resetForm(form?: NgForm) {
+    if (form) {
       form.reset();
       this.usuariosService.selectedUsuario = new Usuario();
     }

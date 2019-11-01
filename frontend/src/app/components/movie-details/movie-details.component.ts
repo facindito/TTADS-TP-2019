@@ -16,26 +16,26 @@ export class MovieDetailsComponent implements OnInit {
 
   constructor(private activeRoute: ActivatedRoute, private router: Router, private moviesService: MoviesService) {
 
-   }
+  }
 
   ngOnInit() {
     this.activeRoute.params.subscribe(params => {
-      this.id = params['id'];
+      this.id = params.id;
       this.moviesService.getOneMovie(this.id)
-      .subscribe((res: any) => {
-      this.movie = res.movie;
-      console.log(this.movie);
-    });
+        .subscribe((res: any) => {
+          this.movie = res.movie;
+          console.log(this.movie);
+        });
     });
   }
 
   deleteMovie() {
     this.activeRoute.params.subscribe(params => {
-      this.id = params['id'];
+      this.id = params.id;
       this.moviesService.deleteMovie(this.id)
-      .subscribe((res: any) => {
-        console.log(res);
-      });
+        .subscribe((res: any) => {
+          console.log(res);
+        });
     });
   }
 

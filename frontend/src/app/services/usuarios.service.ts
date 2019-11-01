@@ -21,7 +21,7 @@ export class UsuariosService {
     return this.http.post(this.URL_API + `/signin`, usuario);
   }
 
-  registro(usuario: Usuario){
+  registro(usuario: Usuario) {
     return this.http.post(this.URL_API + `/signup`, usuario);
   }
 

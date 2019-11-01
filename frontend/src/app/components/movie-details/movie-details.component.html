@@ -2,12 +2,22 @@
     <h1>Cargando...</h1>
 </div>
 <ng-template #main_content>
-    <div class="conteiner">
-        <div class="row" p-4>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12" style="color : white;">
+        <div class="conteiner">
+        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12" style="color : white;">
                 <img src="/assets/img/joker-790658206-large.jpg" alt="...">
             </div>
-            <div class="contenido col-lg-6">
+        </div>
+    <div class="conteiner">
+        <div class="row">
+            <div class="column1">
+                <h5>Fecha de estreno:</h5>
+                <h5>Actores:</h5>
+                <h5>Argumento:</h5>
+                <h5>Director:</h5>
+                <h5>Duración:</h5>
+                <h5>Género:</h5>
+            </div>
+            <div class="column2">
                 <h5>{{movie.fechaEstreno}}</h5>
                 <h5>{{movie.actores}}</h5>
                 <h5>{{movie.argumento}}</h5>
@@ -18,4 +28,4 @@
         </div>
     </div>
 </ng-template>
-<button (click)="deleteMovie()">Borrar</button>
+<button class="btn dlt_btn" (click)="deleteMovie()">Borrar</button>

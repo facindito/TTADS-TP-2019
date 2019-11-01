@@ -21,6 +21,6 @@ export class LoginComponent implements OnInit {
       .subscribe((res: any) => {
         console.log(res);
       });
-    }
+  }
 
 }

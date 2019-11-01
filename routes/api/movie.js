@@ -41,7 +41,7 @@ router.get('/cartelera', (req, res, next) => {
 router.get('/search/:titulo', (req, res, next) => {
     var titulo = req.params.titulo;
     var regex = new RegExp(titulo);
-    Movie.find({ titulo: regex, estado: 'C' })
+    Movie.find({ titulo: regex})
         .then((movies) => {
             if (!movies) {
                 return res.sendStatus(401);

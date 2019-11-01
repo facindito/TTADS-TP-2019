@@ -10,46 +10,46 @@ import { RegisterComponent } from './components/register/register.component';
 import { SearchComponent } from './components/search/search.component';
 
 const routes: Routes = [
-    {
-      path: 'home',
-      component: MoviesComponent,
-      },
-      {
-      path: '',
-      component: MoviesComponent,
-      },
-      {
-        path: 'crear-pelicula',
-        component: MovieCreateComponent
-      },
-      {
-        path: 'pelicula/:id',
-        component: MovieDetailsComponent
-      },
-      {
-        path: 'login',
-        component: LoginComponent
-      },
-      {
-        path: 'crear-sala',
-        component: SalaCreateComponent
-      },
-      {
-        path: 'proximamente',
-        component: ProxEstrenosComponent
-      },
-      {
-        path: 'registrarse',
-        component: RegisterComponent
-      },
-      {
-        path:'search',
-        component: SearchComponent
-      }
-  ];
+  {
+    path: 'home',
+    component: MoviesComponent,
+  },
+  {
+    path: '',
+    component: MoviesComponent,
+  },
+  {
+    path: 'crear-pelicula',
+    component: MovieCreateComponent
+  },
+  {
+    path: 'pelicula/:id',
+    component: MovieDetailsComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'crear-sala',
+    component: SalaCreateComponent
+  },
+  {
+    path: 'proximamente',
+    component: ProxEstrenosComponent
+  },
+  {
+    path: 'registrarse',
+    component: RegisterComponent
+  },
+  {
+    path: 'search',
+    component: SearchComponent
+  }
+];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
-    })
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
 export class AppRoutingModule { }

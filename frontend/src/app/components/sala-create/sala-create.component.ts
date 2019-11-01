@@ -21,11 +21,11 @@ export class SalaCreateComponent implements OnInit {
           this.resetForm();
         })
     }else{*/
-      this.salasService.postSala(form.value)
-        .subscribe(res => {
-          this.resetForm(form);
-        });
-     // }
+    this.salasService.postSala(form.value)
+      .subscribe(res => {
+        this.resetForm(form);
+      });
+    // }
   }
 
   resetForm(form?: NgForm) {
