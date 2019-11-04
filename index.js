@@ -3,7 +3,7 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const cors = require('cors');
-
+const path = require('path');
 
 const app = express();
 
@@ -17,8 +17,7 @@ app.set('port', process.env.PORT || 3000);
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(morgan('dev'));
-
-
+app.use('/img', express.static(path.resolve('img')));
 //Start server
 mongoose.connect('mongodb://localhost:27017/movies', (err, res) => {
     if (err) {

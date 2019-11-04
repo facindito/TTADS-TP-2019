@@ -1,10 +1,10 @@
 <div class="conteiner">
     <h1>Próximamente</h1>
     <div class="row" id="galeria">
-        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12" id="item" *ngFor="let movie of moviesService.moviesProx">
+        <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12" id="item" *ngFor="let movie of moviesService.moviesProx">
             <a ng-href="" (click)="movieDetails(movie._id)">
                 <div class="card" style="width: auto">
-                    <img src="/assets/img/joker-790658206-large.jpg" alt="..." class="card-img-top">
+                    <img [src]="'http://localhost:3000/' + movie.poster" alt="..." class="card-img-top">
                     <div class="ribbon"><span>{{movie.fechaEstreno}}</span></div>
                     <div class="card-body">
                         <h5 class="card-title">{{movie.titulo}}</h5>

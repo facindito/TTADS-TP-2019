@@ -9,7 +9,8 @@ h5 {
 
 img {
     width: 100%;
-    cursor: pointer;
+    width: 300px;
+    height: 450px;
 }
 
 .contenido {
@@ -22,14 +23,6 @@ img {
     display: flex;
 }
 
-.column1 {
-    flex: 20%;
-  }
-
-.column2 {
-    flex: 80%;
-}
-
 .dlt_btn {
     color: black;
     background-color: #FFC312;
@@ -39,4 +32,38 @@ img {
 .dlt_btn:hover {
     color: black;
     background-color: white;
+}
+
+.inner {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-family: 'Source Sans Pro', Arial, sans-serif;
+    font-size: 1em;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+}
+
+.columna {
+    color: #000;
+    font-family: 'Source Sans Pro', Arial, sans-serif;
+    font-size: 1em;
+    -webkit-font-smoothing: antialiased;
+    width: 1000px;
+    margin: 0 auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    z-index: 0;
+    background: transparent;
+}
+
+.contenido {
+    color: white;
+    font-family: 'Source Sans Pro', Arial, sans-serif;
+    font-size: 1em;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    min-height: 450px;
+    padding: 20px;
 }

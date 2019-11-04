@@ -16,6 +16,7 @@ export class MoviesService {
   moviesCart: Movie[];
   search: Movie[];
   titulo: string;
+  file: File;
   readonly URL_API = 'http://localhost:3000/api/movies';
 
   constructor(private http: HttpClient) {
@@ -41,8 +42,11 @@ export class MoviesService {
     return this.http.get(`${this.URL_API}/${id}`);
   }
 
-  postMovie(movie: Movie) {
-    return this.http.post(`${this.URL_API}`, movie);
+  postMovie(movie: Movie, file: File) {
+    const form = new FormData();
+    form.append('titulo', movie.titulo);
+    form.append('poster',file)
+    return this.http.post(`${this.URL_API}`, form);
   }
 
   putMovie(movie: Movie) {

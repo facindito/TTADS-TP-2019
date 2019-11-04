@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 const router = require('express').Router();
-var Sala = mongoose.model('Sala');
+const Sala = mongoose.model('Sala');
 
-var Objectid = mongoose.Types.ObjectId;
-
+//---------------------
+//       READ
+//---------------------
 router.get('/', (req, res, next) => {
     Sala.find({})
         .then((salas) => {
@@ -14,61 +15,44 @@ router.get('/', (req, res, next) => {
         })
         .catch(next);
 });
-
+//---------------------
+//       CREATE
+//---------------------
 router.post('/', (req, res, next) => {
     let sala = new Sala({
-
-    numero: req.body.numero,
-    capacidad: req.body.capacidad
-    })
-
+        numero: req.body.numero,
+        capacidad: req.body.capacidad
+    });
     sala.save((err) => {
         if (err) {
             return res.status(500).send(err.message);
         }
         res.status(200);
-    });
+    }).catch(next);
 });
-
-router.put('/:id', (req, res, next) => {
+//---------------------
+//       UPDATE
+//---------------------
+router.put('/:id', async(req, res, next) => {
     let id = req.params.id;
-    Sala.findById(id)
-        .then((sala) => {
-            if (sala._id.toString() === id.toString()) {
-                if (typeof req.body.numero !== 'undefined') {
-                    sala.numero = req.body.numero;
-                }
-                if (typeof req.body.capacidad !== 'undefined') {
-                    sala.capacidad = req.body.capacidad;
-                }
-
-                sala.save()
-                    .then((sala) => {
-                        return res.json({ 'sala': sala });
-                    }).catch(next);
-            } else {
-                return res.sendStatus(403);
-            }
-        });
+    await Sala.findByIdAndUpdate(id, req.body, (err, sala) => {
+        if (!err) {
+            return res.json({ 'sala': sala });
+        } else { return res.sendStatus(403); }
+    }).catch(next);
 });
 
+//---------------------
+//       DELETE
+//---------------------
 router.delete('/:id', (req, res, next) => {
     let id = req.params.id;
-    Sala.findById(id)
-        .then((sala) => {
-            if (!sala) {
-                return res.sendStatus(401);
-            }
-            if (sala._id.toString() === id.toString()) {
-                return sala.remove()
-                    .then(() => {
-                        return res.sendStatus(204);
-                    });
-            } else {
-                res.sendStatus(403);
-            }
-        }).catch(next);
-    //res.sendStatus(200);
+    Sala.findByIdAndRemove(id, (err) => {
+        if (!err) {
+            return res.sendStatus(204);
+        } else { return res.sendStatus(403); }
+    }).catch(next);
+
 })
 
 module.exports = router;

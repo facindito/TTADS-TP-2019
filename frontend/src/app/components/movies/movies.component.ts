@@ -13,7 +13,6 @@ export class MoviesComponent implements OnInit {
 
   constructor(private moviesService: MoviesService, private router: Router) { }
   movies: Movie[];
-
   ngOnInit() {
     this.getMovieCart();
   }

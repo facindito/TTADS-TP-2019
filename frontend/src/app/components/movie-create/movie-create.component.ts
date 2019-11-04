@@ -3,6 +3,11 @@ import { MoviesService } from '../../services/movies.service';
 import { Movie } from '../../models/movie';
 import { NgForm } from '@angular/forms';
 
+
+interface HtmlInputEvent extends Event {
+  target: HTMLInputElement & EventTarget;
+}
+
 @Component({
   selector: 'app-movie-create',
   templateUrl: './movie-create.component.html',
@@ -12,8 +17,21 @@ export class MovieCreateComponent implements OnInit {
 
   constructor(private moviesService: MoviesService) { }
 
+  photoSelected: string | ArrayBuffer;
+  file:File;
   ngOnInit() {
   }
+
+  onPhotoSelected(event: HtmlInputEvent): void {
+    if (event.target.files && event.target.files[0]) {
+      this.file = <File>event.target.files[0];
+      // image preview
+      const reader = new FileReader();
+      reader.onload = e => this.photoSelected = reader.result;
+      reader.readAsDataURL(this.file);
+    }
+  }
+
   addMovie(form?: NgForm) {
     /*if(form.value._id){
       this.moviesService.putMovie(form.value)
@@ -21,7 +39,7 @@ export class MovieCreateComponent implements OnInit {
           this.resetForm();
         })
     }else{*/
-    this.moviesService.postMovie(form.value)
+    this.moviesService.postMovie(form.value, this.file)
       .subscribe(res => {
         this.resetForm(form);
       });
@@ -34,5 +52,5 @@ export class MovieCreateComponent implements OnInit {
       this.moviesService.selectedMovies = new Movie();
     }
   }
-
+  
 }

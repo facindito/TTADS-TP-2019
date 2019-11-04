@@ -1,10 +1,21 @@
 const mongoose = require('mongoose');
 const router = require('express').Router();
 const Movie = mongoose.model('Movie');
+const multer = require('multer');
+const path = require('path');
+const uuid = require('uuid')
+const storage = multer.diskStorage({
+    destination: 'img/',
+    filename: function(req, file, cb) {
+        cb(null, uuid.v4() + path.extname(file.originalname))
+    }
+});
+const upload = multer({ storage: storage });
 
 
-var ObjectId = mongoose.Types.ObjectId;
-
+//---------------------
+//       READ
+//---------------------
 router.get('/', (req, res, next) => {
     Movie.find({})
         .then((movies) => {
@@ -12,10 +23,11 @@ router.get('/', (req, res, next) => {
                 return res.sendStatus(401);
             }
             return res.json({ 'movies': movies })
-        })
-        .catch(next);
+        }).catch(next);
 });
-
+//---------------------
+//  PROXIMAMENTE
+//---------------------
 router.get('/proximamente', (req, res, next) => {
     Movie.find({ estado: 'P' })
         .then((movies) => {
@@ -23,10 +35,11 @@ router.get('/proximamente', (req, res, next) => {
                 return res.sendStatus(401);
             }
             return res.json({ 'movies': movies })
-        })
-        .catch(next);
+        }).catch(next);
 });
-
+//---------------------
+//       CARTELERA
+//---------------------
 router.get('/cartelera', (req, res, next) => {
     Movie.find({ estado: 'C' })
         .then((movies) => {
@@ -34,14 +47,15 @@ router.get('/cartelera', (req, res, next) => {
                 return res.sendStatus(401);
             }
             return res.json({ 'movies': movies })
-        })
-        .catch(next);
+        }).catch(next);
 });
-
+//---------------------
+//       SEARCH
+//---------------------
 router.get('/search/:titulo', (req, res, next) => {
     var titulo = req.params.titulo;
     var regex = new RegExp(titulo);
-    Movie.find({ titulo: regex})
+    Movie.find({ titulo: regex })
         .then((movies) => {
             if (!movies) {
                 return res.sendStatus(401);
@@ -50,7 +64,9 @@ router.get('/search/:titulo', (req, res, next) => {
         })
         .catch(next);
 });
-
+//---------------------
+//     READ BY ID
+//---------------------
 router.get('/:id', (req, res, next) => {
     let id = req.params.id;
     Movie.findById(id)
@@ -62,12 +78,15 @@ router.get('/:id', (req, res, next) => {
         })
         .catch(next);
 });
+//---------------------
+//       CREATE
+//---------------------
+router.post('/', upload.single('poster'), (req, res, next) => {
 
-router.post('/', (req, res, next) => {
     let movie = new Movie({
         titulo: req.body.titulo,
         descripcion: req.body.descripcion,
-        poster: req.body.poster,
+        poster: req.file.path,
         fechaEstreno: req.body.fechaEstreno,
         tipo: req.body.tipo,
         actores: req.body.actores,
@@ -77,65 +96,37 @@ router.post('/', (req, res, next) => {
         entradasSem: req.body.entradasSem,
         genero: req.body.genero,
         estado: req.body.estado,
-    })
-
+    });
     movie.save((err) => {
         if (err) {
-            return res.status(500).send(err.message);
+            return res.status(500);
         }
         res.status(200);
-    });
+    }).catch(next);
 });
 
-
-router.put('/:id', (req, res, next) => {
+//---------------------
+//       UPDATE
+//---------------------
+router.put('/:id', upload.single('poster'), async(req, res, next) => {
     let id = req.params.id;
-    Movie.findById(id)
-        .then((movie) => {
-            if (movie._id.toString() === id.toString()) {
-                movie.titulo = req.body.titulo;
-                movie.descripcion = req.body.descripcion;
-                movie.poster = req.body.poster;
-                movie.fechaEstreno = req.body.fechaEstreno;
-                movie.tipo = req.body.tipo;
-                movie.actores = req.body.actores;
-                movie.argumento = req.body.argumento;
-                movie.director = req.body.director;
-                movie.duracion = req.body.duracion;
-                movie.entradasSem = req.body.entradasSem;
-                movie.genero = req.body.genero;
-                movie.estado = req.body.estado;
-
-                movie.save()
-                    .then((movie) => {
-                        return res.json({ 'movie': movie });
-                    }).catch(next);
-            } else {
-                return res.sendStatus(403);
-            }
-        });
+    req.body.poster = req.file.path;
+    await Movie.findByIdAndUpdate(id, req.body, (err, movie) => {
+        if (!err) {
+            return res.json({ 'movie': movie });
+        } else { return res.sendStatus(403); }
+    }).catch(next);
 });
-
-
+//---------------------
+//       DELETE
+//---------------------
 router.delete('/:id', (req, res, next) => {
     let id = req.params.id;
-    Movie.findById(id)
-        .then((movie) => {
-            if (!movie) {
-                return res.sendStatus(401);
-            }
-            if (movie._id.toString() === id.toString()) {
-                return movie.remove()
-                    .then(() => {
-                        return res.sendStatus(204);
-                    });
-            } else {
-                res.sendStatus(403);
-            }
-        }).catch(next);
-    //res.sendStatus(200);
+    Movie.findByIdAndRemove(id, (err, movie) => {
+        if (!err) {
+            return res.json({ 'movie': movie });
+        } else { return res.sendStatus(403); }
+    }).catch(next);
 });
-
-
 
 module.exports = router;
