@@ -12,16 +12,17 @@ export class SearchComponent implements OnInit {
   constructor(private moviesService: MoviesService, private router: Router) { }
 
   ngOnInit() {
-    this.getSearch();
+    //this.getSearch();
+    this.moviesService.search;
   }
 
-  getSearch() {
+  /*getSearch() {
     const titulo = this.moviesService.titulo;
     this.moviesService.getSearch(titulo)
       .subscribe((res: any) => {
         this.moviesService.search = res.movies;
       });
-  }
+  }*/
 
   movieDetails(id) {
     this.router.navigate(['/pelicula', id]);

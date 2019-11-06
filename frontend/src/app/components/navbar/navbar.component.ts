@@ -14,11 +14,11 @@ export class NavbarComponent implements OnInit {
   }
 
   getSearch(titulo) {
-    /* this.moviesService.getSearch(titulo)
+     this.moviesService.getSearch(titulo)
      .subscribe((res: any) => {
        this.moviesService.search = res.movies;
-       });*/
-    this.moviesService.titulo = titulo;
+       });
+    //this.moviesService.titulo = titulo;
 
   }
 

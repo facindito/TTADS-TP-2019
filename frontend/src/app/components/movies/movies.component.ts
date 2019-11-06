@@ -17,13 +17,6 @@ export class MoviesComponent implements OnInit {
     this.getMovieCart();
   }
 
-  getMovies() {
-    this.moviesService.getMovies()
-      .subscribe((res: any) => {
-        this.moviesService.movies = res.movies;
-      });
-  }
-
   getMovieCart() {
     this.moviesService.getMovieCart()
       .subscribe((res: any) => {
