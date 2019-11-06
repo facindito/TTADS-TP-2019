@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Movie } from '../models/movie';
 import { HttpClient } from '@angular/common/http';
+import { Subject } from 'rxjs';
 
 
 @Injectable({
@@ -19,8 +20,20 @@ export class MoviesService {
   file: File;
   readonly URL_API = 'http://localhost:3000/api/movies';
 
+  // Observable string sources
+  private missionAnnouncedSource = new Subject<string>();
+
+  // Observable string streams
+  missionAnnounced$ = this.missionAnnouncedSource.asObservable();
+
   constructor(private http: HttpClient) {
     this.selectedMovies = new Movie();
+  }
+
+  // Service message commands
+  announceMission(tituloSearch: string) {
+    console.log('Servicio: ' + tituloSearch);
+    this.missionAnnouncedSource.next(tituloSearch);
   }
 
   getMovies() {

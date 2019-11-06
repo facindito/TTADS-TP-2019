@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MoviesService } from '../../services/movies.service';
 import { Router } from '@angular/router';
+import { FormGroup } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-search',
@@ -9,12 +11,30 @@ import { Router } from '@angular/router';
 })
 export class SearchComponent implements OnInit {
 
-  constructor(private moviesService: MoviesService, private router: Router) { }
+  myForm: FormGroup;
+  @Input()
+  subscription: Subscription;
+  tituloSearch: string;
+
+  constructor(private moviesService: MoviesService, private router: Router) {
+    console.log('Constructor');
+    this.subscription = moviesService.missionAnnounced$.subscribe(
+      tituloSearch => { this.tituloSearch = tituloSearch; } );
+    console.log(this.tituloSearch);
+   }
 
   ngOnInit() {
-    //this.getSearch();
-    this.moviesService.search;
+    this.getSearch(this.tituloSearch);
+    console.log('componente search: ' + this.tituloSearch);
   }
+
+  getSearch(tituloSearch) {
+    this.moviesService.getSearch(tituloSearch)
+    .subscribe((res: any) => {
+      this.moviesService.search = res.movies;
+      });
+    }
+
 
   /*getSearch() {
     const titulo = this.moviesService.titulo;
@@ -23,6 +43,8 @@ export class SearchComponent implements OnInit {
         this.moviesService.search = res.movies;
       });
   }*/
+
+
 
   movieDetails(id) {
     this.router.navigate(['/pelicula', id]);

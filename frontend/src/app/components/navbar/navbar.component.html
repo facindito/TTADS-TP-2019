@@ -37,6 +37,9 @@
                             <i class="fa fa-search text-grey" aria-hidden="true"></i>
                         </button>
                     </form>
+                    <form [formGroup]="myForm">
+                        <input class="form-control mr-sm-2" formControlName="tituloSearch">
+                    </form>
                 </li>
             </ul>
             <a class="nav-link" [routerLink]="['/login']">Ingresar</a>/
