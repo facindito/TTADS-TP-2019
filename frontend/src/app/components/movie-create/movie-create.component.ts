@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../../services/movies.service';
 import { Movie } from '../../models/movie';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 interface HtmlInputEvent extends Event {
@@ -15,7 +16,7 @@ interface HtmlInputEvent extends Event {
 })
 export class MovieCreateComponent implements OnInit {
 
-  constructor(private moviesService: MoviesService) { }
+  constructor(private moviesService: MoviesService, private router: Router) { }
 
   photoSelected: string | ArrayBuffer;
   file: File;
@@ -44,6 +45,7 @@ export class MovieCreateComponent implements OnInit {
         this.resetForm(form);
       });
     // }
+    this.router.navigate(['/home']);
   }
 
   resetForm(form?: NgForm) {

@@ -1,5 +1,8 @@
 <div class="conteiner">
-    <h1>Search</h1>
+    <h1>Buscar películas</h1>
+    <form [formGroup]="myForm">
+        <input class="form-control mr-sm-2" formControlName="tituloSearch" placeholder="Ingresar título">
+    </form>
     <div class="row" id="galeria">
         <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12" id="item" *ngFor="let movie of moviesService.search">
             <a ng-href="" (click)="movieDetails(movie._id)">

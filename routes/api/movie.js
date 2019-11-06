@@ -110,7 +110,7 @@ router.post('/', upload.single('poster'), (req, res, next) => {
 //---------------------
 router.put('/:id', upload.single('poster'), async(req, res, next) => {
     let id = req.params.id;
-    req.body.poster = req.file.path;
+    if (req.body.poster) { req.body.poster = req.file.path }
     await Movie.findByIdAndUpdate(id, req.body, (err, movie) => {
         if (!err) {
             return res.json({ 'movie': movie });

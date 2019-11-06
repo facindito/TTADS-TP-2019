@@ -19,22 +19,22 @@ export class MoviesService {
   titulo: string;
   file: File;
   readonly URL_API = 'http://localhost:3000/api/movies';
-
+/*
   // Observable string sources
   private missionAnnouncedSource = new Subject<string>();
 
   // Observable string streams
   missionAnnounced$ = this.missionAnnouncedSource.asObservable();
-
+*/
   constructor(private http: HttpClient) {
     this.selectedMovies = new Movie();
   }
 
   // Service message commands
-  announceMission(tituloSearch: string) {
+  /*announceMission(tituloSearch: string) {
     console.log('Servicio: ' + tituloSearch);
     this.missionAnnouncedSource.next(tituloSearch);
-  }
+  }*/
 
   getMovies() {
     return this.http.get(`${this.URL_API}`);
@@ -48,7 +48,11 @@ export class MoviesService {
     return this.http.get(`${this.URL_API}/cartelera`);
   }
   getSearch(titulo: string) {
+    if (titulo === '') {
+    return this.http.get(`${this.URL_API}`);
+    } else {
     return this.http.get(`${this.URL_API}/search/${titulo}`);
+    }
   }
 
   getOneMovie(id: string) {

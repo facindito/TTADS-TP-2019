@@ -16,17 +16,17 @@ export class NavbarComponent implements OnInit {
   constructor(private moviesService: MoviesService, private fb: FormBuilder, private router: Router) { }
 
   ngOnInit() {
-    this.myForm = this.fb.group({
+    /*this.myForm = this.fb.group({
       tituloSearch: ''
     });
 
     this.myForm.valueChanges.subscribe(console.log);
 
-    this.onChanges();
+    this.onChanges();*/
 
   }
 
-  onChanges(): void {
+/*  onChanges(): void {
     this.myForm.valueChanges.subscribe(search => {
     console.log('titulo de observable: ' + search.tituloSearch);
     this.tituloSearch = search.tituloSearch;
@@ -34,7 +34,7 @@ export class NavbarComponent implements OnInit {
     this.moviesService.announceMission(this.tituloSearch);
     this.router.navigate(['/search']);
     });
-  }
+  }*/
 
 
   getSearch(titulo) {
