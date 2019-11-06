@@ -5,7 +5,9 @@
             <a ng-href="" (click)="movieDetails(movie._id)">
                 <div class="card" style="width: auto">
                     <img [src]="'http://localhost:3000/' + movie.poster" alt="..." class="card-img-top">
-                    <div class="ribbon"><span>{{movie.fechaEstreno}}</span></div>
+                    <div *ngIf="movie.estado == 'E'">
+                        <div class="ribbon"><span>ESTRENO</span></div>
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title">{{movie.titulo}}</h5>
                     </div>

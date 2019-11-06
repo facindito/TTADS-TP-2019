@@ -41,7 +41,7 @@ router.get('/proximamente', (req, res, next) => {
 //       CARTELERA
 //---------------------
 router.get('/cartelera', (req, res, next) => {
-    Movie.find({ estado: 'C' })
+    Movie.find().or([{ estado: 'C' }, { estado: 'E' }])
         .then((movies) => {
             if (!movies) {
                 return res.sendStatus(401);

@@ -18,7 +18,7 @@ export class MovieCreateComponent implements OnInit {
   constructor(private moviesService: MoviesService) { }
 
   photoSelected: string | ArrayBuffer;
-  file:File;
+  file: File;
   ngOnInit() {
   }
 
@@ -52,5 +52,4 @@ export class MovieCreateComponent implements OnInit {
       this.moviesService.selectedMovies = new Movie();
     }
   }
-  
 }

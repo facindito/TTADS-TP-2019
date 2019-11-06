@@ -45,7 +45,13 @@ export class MoviesService {
   postMovie(movie: Movie, file: File) {
     const form = new FormData();
     form.append('titulo', movie.titulo);
-    form.append('poster',file)
+    form.append('estado', movie.estado);
+    form.append('genero', movie.genero);
+    form.append('actores', movie.actores);
+    // form.append('duracion', movie.duracion); arreglar
+    form.append('director', movie.director);
+    form.append('argumento', movie.argumento);
+    form.append('poster', file);
     return this.http.post(`${this.URL_API}`, form);
   }
 
